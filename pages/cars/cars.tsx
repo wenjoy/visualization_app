@@ -1,10 +1,10 @@
 import useSWR from 'swr';
 import { RadarChart, Hint } from 'react-vis';
 import { format } from 'd3-format';
-import styles from '../styles/Car.module.css';
+import styles from '../../styles/Car.module.css';
 import React, { useState } from 'react';
 
-const fetcher = (url) => fetch(url).then((r) => r.json());
+export const fetcher = (url) => fetch(url).then((r) => r.json());
 
 const basicFormat = format('.2r');
 const wideFormat = format('.3r');
