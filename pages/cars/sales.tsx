@@ -2,7 +2,7 @@ import useSWR from 'swr';
 import React from 'react';
 import { XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, VerticalBarSeries, VerticalBarSeriesCanvas, LabelSeries, DiscreteColorLegend, LineSeries } from 'react-vis';
 
-import { fetcher } from './cars';
+import { fetcher } from './trait';
 import { CarType } from '../api/cars/sales';
 
 function massage(list, filter) {
