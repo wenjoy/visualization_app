@@ -12,7 +12,6 @@ export interface ISale {
 function randomNum(range: number) {
   return Math.floor(Math.random() * range);
 }
-//TODO: refactor to overload
 function randomPick(list: any[], num: number) {
   const ret = [];
   const len = list.length;
@@ -21,7 +20,7 @@ function randomPick(list: any[], num: number) {
   }
   return ret;
 }
-function orderPick(list: any[], cycle: boolean) {
+function orderPick(list: any[], cycle: boolean = true) {
   let copy = [...list];
   return function () {
     if (copy.length > 0) {
@@ -43,9 +42,7 @@ function mockData(num: number, type): ISale[] {
     acc.push(...curr)
     return acc;
   }, []);
-  const datePick = orderPick(deflated, false);
-  // TODO: type transform, i don't want to create a class
-  // @ts-ignore
+  const datePick = orderPick(deflated);
   return placeholder.map((item, ind) => {
     return {
       type,
@@ -56,7 +53,6 @@ function mockData(num: number, type): ISale[] {
 }
 export default (req, res) => {
 
-  //TODO: try to use tuple
   const data: ISale[] = mockData(24, CarType.Electric).concat(mockData(24, CarType.Gas));
   res.statusCode = 200;
   res.json(data)
